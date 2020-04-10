@@ -6,6 +6,8 @@ resource "aws_instance" "webserver" {
     tags = {
         Name = "Webserver"
     }    
+
+
 }
 
 output "ec2instance" {
