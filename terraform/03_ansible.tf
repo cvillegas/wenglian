@@ -14,22 +14,22 @@ resource "null_resource" "webserver_provisioner" {
   }
 
   // copy our example script to the server
-  provisioner "file" {
-    source      = "files/get-public-ip.sh"
-    destination = "/tmp/get-public-ip.sh"
-  }
+  #provisioner "file" {
+  #  source      = "files/get-public-ip.sh"
+  #  destination = "/tmp/get-public-ip.sh"
+  #}
 
   // change permissions to executable and pipe its output into a new file
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/get-public-ip.sh",
-      "/tmp/get-public-ip.sh > /tmp/public-ip",
+      "echo 'Hello World'",
     ]
   }
 
   provisioner "local-exec" {
-    # copy the public-ip file back to CWD, which will be tested
-    command = "ansible-playbook -u root --private-key var.ssh_key_private -i aws_instance.webserver.public_ip, el_playbook.yml"
+    # run locallly 
+    #command = "ansible-playbook -u root --private-key var.ssh_key_private -i aws_instance.webserver.public_ip, el_playbook.yml"
+    command = "dir"
   }
 }
 
