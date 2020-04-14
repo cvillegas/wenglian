@@ -20,6 +20,7 @@ resource "null_resource" "webserver_provisioner" {
   #}
 
   // change permissions to executable and pipe its output into a new file
+  /*
   provisioner "remote-exec" {
     inline = [
       "echo 'Hello World'",
@@ -31,6 +32,7 @@ resource "null_resource" "webserver_provisioner" {
     #command = "ansible-playbook -u root --private-key var.ssh_key_private -i aws_instance.webserver.public_ip, el_playbook.yml"
     command = "dir"
   }
+  */
 }
 
 

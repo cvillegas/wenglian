@@ -4,7 +4,7 @@ resource "aws_instance" "webserver" {
     vpc_security_group_ids = [aws_security_group.wenliang.id]
 
     tags = {
-        Name = "Webserver"
+        Name = "${var.env}-webserver"
     }    
 
 
